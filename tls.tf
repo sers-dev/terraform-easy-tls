@@ -9,7 +9,8 @@ resource "tls_cert_request" "request" {
   subject {
     common_name = var.commonName
   }
-  dns_names = var.additionalNames
+  uris = concat([var.commonName], var.additionalNames)
+  dns_names = concat([var.commonName], var.additionalNames)
 
 }
 
